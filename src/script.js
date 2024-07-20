@@ -131,12 +131,23 @@ function browse() {
 
 logoEl.addEventListener("change", (e) => {
   let file = e.target.files[0];
-  let reader = new FileReader();
-  reader.onload = () => {
-    op.image = reader.result;
-    render();
-  };
-  reader.readAsDataURL(file);
+  if (
+    file &&
+    (file.type === "image/jpeg" ||
+      file.type === "image/jpg" ||
+      file.type === "image/png")
+  ) {
+    let reader = new FileReader();
+    reader.onload = () => {
+      op.image = reader.result;
+      render();
+    };
+    reader.readAsDataURL(file);
+  } else {
+    alert(
+      "Format file tidak valid. Harap unggah file dengan format jpg, jpeg, atau png."
+    );
+  }
 });
 
 clearEl.addEventListener("click", (e) => {
