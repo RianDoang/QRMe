@@ -1,3 +1,4 @@
+// QR Code program
 const textEl = document.querySelector("#data");
 const sizeEl = document.querySelector("#size");
 const logoEl = document.querySelector("#logo");
@@ -161,3 +162,4 @@ dlEl.addEventListener("click", (e) => {
     extenstion: "jpg, svg, png, jpeg",
   });
 });
+// End QR Code program
