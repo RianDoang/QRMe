@@ -16,7 +16,9 @@
     />
   </head>
   <body class="bg-slate-900 font-figtree relative">
-    <section class="absolute top-0 left-0 -z-50 blur-3xl overflow-hidden w-full h-full">
+    <section
+      class="absolute top-0 left-0 -z-50 blur-3xl overflow-hidden w-full h-full"
+    >
       <span
         class="absolute top-28 left-52 w-40 h-96 bg-teal-500 opacity-20 rounded-full -rotate-45"
       ></span>
@@ -26,6 +28,78 @@
       <span
         class="absolute bottom-0 right-1/2 w-32 h-72 bg-red-500 opacity-20 rounded-full -rotate-45"
       ></span>
+    </section>
+
+    <section
+      id="aboutSubMenu"
+      class="w-full h-screen absolute top-0 left-0 hidden items-center justify-center backdrop-blur-sm -z-10"
+    >
+      <div
+        id="aboutField"
+        class="block w-[90%] h-[90%] rounded-lg bg-slate-800 p-5 shadow-md shadow-gray-700"
+      >
+        <div class="flex items-center justify-between mt-2 w-[97%] mx-auto">
+          <div class="flex items-center justify-center gap-3">
+            <span class="w-4 h-4 rounded-full bg-red-500 md:w-5 md:h-5"></span>
+            <span
+              class="w-4 h-4 rounded-full bg-yellow-500 md:w-5 md:h-5"
+            ></span>
+            <span
+              class="w-4 h-4 rounded-full bg-green-500 md:w-5 md:h-5"
+            ></span>
+          </div>
+          <div
+            class="flex items-center justify-center bg-transparent p-2 rounded-full cursor-pointer transition duration-200 hover:bg-slate-600"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="currentColor"
+              class="bi bi-x-lg text-white"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+              />
+            </svg>
+          </div>
+        </div>
+        <p
+          class="text-white font-semibold text-lg w-full h-[87%] mt-4 gap-5 flex flex-col items-center overflow-auto text-justify md:justify-evenly"
+        >
+          <span>
+            Selamat datang di QR Generator, tempat di mana kemudahan dan
+            kekreatifan bertemu dalam pembuatan QR code. Kami adalah tim yang
+            berkomitmen untuk menyediakan solusi yang inovatif dan mudah
+            digunakan bagi Anda yang membutuhkan QR code untuk berbagai
+            keperluan.
+          </span>
+          <span>
+            Dengan pengalaman yang luas dalam teknologi dan desain, kami telah
+            mengembangkan platform yang memungkinkan Anda untuk membuat QR code
+            dengan cepat, tanpa ribet, dan sesuai dengan keinginan Anda. Dari
+            promosi bisnis hingga acara khusus, QR code yang Anda buat dengan
+            kami dapat disesuaikan dengan logo, warna, dan informasi yang
+            relevan.
+          </span>
+          <span>
+            Kami mengutamakan keamanan data dan privasi pengguna. Oleh karena
+            itu, setiap QR code yang Anda buat dijamin dilindungi dengan
+            enkripsi yang kuat.
+          </span>
+          <span>
+            Kami juga percaya bahwa pelayanan yang prima adalah kunci
+            kesuksesan. Tim layanan pelanggan kami siap membantu Anda dengan
+            setiap pertanyaan atau permintaan yang Anda miliki.
+          </span>
+          <span>
+            Terima kasih telah memilih [Nama Website] untuk kebutuhan pembuatan
+            QR code Anda. Kami berharap dapat terus memberikan pengalaman yang
+            memuaskan dan bernilai bagi Anda.
+          </span>
+        </p>
+      </div>
     </section>
 
     <nav class="flex items-center justify-between w-full h-20 text-white">
@@ -56,12 +130,18 @@
         class="flex items-center justify-center mr-4 font-figtree font-semibold text-gray-300 gap-8 md:mr-8"
       >
         <li>
-          <a href="" class="transition duration-150 hover:text-teal-500"
+          <a
+            href=""
+            id="docsMenu"
+            class="transition duration-150 hover:text-teal-500"
             >Docs</a
           >
         </li>
         <li>
-          <a href="" class="transition duration-150 hover:text-teal-500"
+          <a
+            href=""
+            id="aboutMenu"
+            class="transition duration-150 hover:text-teal-500"
             >About</a
           >
         </li>
@@ -91,5 +171,21 @@
         >
       </div>
     </section>
+
+    <script>
+      const docsMenu = document.getElementById("docsMenu");
+      const aboutMenu = document.getElementById("aboutMenu");
+      const aboutSubMenu = document.getElementById("aboutSubMenu");
+      const aboutField = document.getElementsByTagName("aboutField");
+
+      docsMenu.addEventListener("click", () => {
+        alert("Fitur ini sedang dalam perbaikan");
+      });
+
+      aboutMenu.addEventListener("click", () => {
+        alert("Fitur ini sedang dalam perbaikan");
+        
+      });
+    </script>
   </body>
 </html>

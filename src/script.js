@@ -1,3 +1,30 @@
+// Input QR
+const urlInput = document.getElementById("urlInput");
+const textInput = document.getElementById("textInput");
+const data = document.getElementById("data");
+
+data.placeholder = "Enter your website";
+
+textInput.addEventListener("click", () => {
+  data.placeholder = "Enter your name";
+  textInput.classList.add("bg-slate-500");
+  textInput.classList.remove("bg-transparent");
+  urlInput.classList.remove("bg-slate-500");
+  urlInput.classList.add("bg-transparent");
+  data.value = "";
+});
+
+urlInput.addEventListener("click", () => {
+  data.placeholder = "Enter your website";
+  urlInput.classList.add("bg-slate-500");
+  urlInput.classList.remove("bg-transparent");
+  textInput.classList.remove("bg-slate-500");
+  textInput.classList.add("bg-transparent");
+  data.value = "";
+});
+
+// End Input QR
+
 // QR Code program
 const textEl = document.querySelector("#data");
 const sizeEl = document.querySelector("#size");
@@ -10,20 +37,21 @@ const dotColorEl1 = document.querySelector("#dot-color-1");
 const dotColorEl2 = document.querySelector("#dot-color-2");
 const bgEl = document.querySelector("#bg-color");
 const dlEl = document.querySelector("#btn-dl");
+const loadingCanvas = document.getElementById("loadingCanvas");
 
-logoA.addEventListener("click", function () {
-  marginEl.classList.remove("cursorNone");
-  marginEl.removeAttribute("disabled");
-  marginEl.classList.remove("gray");
-  marginEl.classList.add("white");
-});
+// logoA.addEventListener("click", function () {
+//   marginEl.classList.remove("cursorNone");
+//   marginEl.removeAttribute("disabled");
+//   marginEl.classList.remove("gray");
+//   marginEl.classList.add("white");
+// });
 
-clearEl.addEventListener("click", function () {
-  marginEl.classList.add("cursorNone");
-  marginEl.setAttribute("disabled", "disabled");
-  marginEl.classList.add("gray");
-  marginEl.classList.remove("white");
-});
+// clearEl.addEventListener("click", function () {
+//   marginEl.classList.add("cursorNone");
+//   marginEl.setAttribute("disabled", "disabled");
+//   marginEl.classList.add("gray");
+//   marginEl.classList.remove("white");
+// });
 
 // if (textEl.addEventListener) {
 //   textEl.addEventListener(
@@ -88,6 +116,11 @@ let op = {
 // });
 
 textEl.addEventListener("keyup", (e) => {
+  // if ((op.data = e.target.value)) {
+  //   render();
+  // } else {
+  // }
+
   op.data = e.target.value;
   render();
 });
@@ -162,4 +195,5 @@ dlEl.addEventListener("click", (e) => {
     extenstion: "jpg, svg, png, jpeg",
   });
 });
+
 // End QR Code program
