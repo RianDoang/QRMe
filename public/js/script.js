@@ -150,7 +150,7 @@ bgEl.addEventListener("input", (e) => {
   render();
 });
 
-var qrCode;
+let qrCode;
 function render() {
   qrCode = new QRCodeStyling(op);
   let canvasEl = document.querySelector("#canvas");
@@ -195,5 +195,4 @@ dlEl.addEventListener("click", (e) => {
     extenstion: "jpg, svg, png, jpeg",
   });
 });
-
 // End QR Code program
