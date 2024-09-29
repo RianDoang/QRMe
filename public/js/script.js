@@ -12,6 +12,8 @@ textInput.addEventListener("click", () => {
   urlInput.classList.remove("bg-slate-500");
   urlInput.classList.add("bg-transparent");
   data.value = "";
+  delete op.image;
+  clearQRCode();
 });
 
 urlInput.addEventListener("click", () => {
@@ -21,69 +23,29 @@ urlInput.addEventListener("click", () => {
   textInput.classList.remove("bg-slate-500");
   textInput.classList.add("bg-transparent");
   data.value = "";
+  delete op.image;
+  clearQRCode();
 });
-
 // End Input QR
 
 // QR Code program
 const textEl = document.querySelector("#data");
-const sizeEl = document.querySelector("#size");
 const logoEl = document.querySelector("#logo");
 const logoA = document.querySelector(".fileUpload");
 const clearEl = document.querySelector("#clear");
-const marginEl = document.querySelector("#margin");
 const dotModeEl = document.querySelector("#dot");
 const dotColorEl1 = document.querySelector("#dot-color-1");
 const dotColorEl2 = document.querySelector("#dot-color-2");
 const bgEl = document.querySelector("#bg-color");
 const dlEl = document.querySelector("#btn-dl");
 const loadingCanvas = document.getElementById("loadingCanvas");
-
-// logoA.addEventListener("click", function () {
-//   marginEl.classList.remove("cursorNone");
-//   marginEl.removeAttribute("disabled");
-//   marginEl.classList.remove("gray");
-//   marginEl.classList.add("white");
-// });
-
-// clearEl.addEventListener("click", function () {
-//   marginEl.classList.add("cursorNone");
-//   marginEl.setAttribute("disabled", "disabled");
-//   marginEl.classList.add("gray");
-//   marginEl.classList.remove("white");
-// });
-
-// if (textEl.addEventListener) {
-//   textEl.addEventListener(
-//     "input",
-//     function () {
-//       textEl.classList.remove("cursorNone");
-//       textEl.removeAttribute("disabled");
-//     },
-//     false
-//   );
-// } else if (textEl.attachEvent) {
-//   textEl.attachEvent("onpropertychange", function () {
-//     sizeEl.classList.add("cursorNone");
-//     sizeEl.setAttribute("disabled", "disabled");
-//   });
-// }
-
-// textEl.addEventListener("onchange", function () {
-//   if ("input") {
-//     sizeEl.classList.remove("cursorNone");
-//     sizeEl.removeAttribute("disabled");
-//   } else {
-//     sizeEl.classList.add("cursorNone");
-//     sizeEl.setAttribute("disabled", "disabled");
-//   }
-// });
+const canvasEl = document.getElementById("canvas");
 
 let op = {
   width: 150,
   height: 150,
   type: "jpg",
-  data: textEl.value,
+  data: "",
   image: "",
   dotsOptions: {
     color: "#4267b2",
@@ -107,29 +69,35 @@ let op = {
   },
 };
 
-// render();
+// Render QRCode
+function render() {
+  if (op.data) {
+    qrCode = new QRCodeStyling(op);
+    canvasEl.innerHTML = "";
+    qrCode.append(canvasEl);
+  }
+}
 
-// sizeEl.addEventListener("input", (e) => {
-//   op.width = e.target.value * 5;
-//   op.height = e.target.value * 5;
-//   render();
-// });
+// Clear QRCode
+function clearQRCode() {
+  canvasEl.innerHTML = "";
+}
 
-textEl.addEventListener("keyup", (e) => {
-  // if ((op.data = e.target.value)) {
-  //   render();
-  // } else {
-  // }
+// Event listener untuk input
+textEl.addEventListener("input", (e) => {
+  const data = e.target.value.trim();
+  op.data = data;
 
-  op.data = e.target.value;
-  render();
+  if (!data) {
+    // Hapus QRCode jika input kosong
+    clearQRCode();
+  } else {
+    // Render ulang QRCode jika ada input
+    render();
+  }
 });
 
-// marginEl.addEventListener("input", (e) => {
-//   op.imageOptions = { margin: e.target.value };
-//   render();
-// });
-
+// Dot Mode & Color
 dotModeEl.addEventListener("change", (e) => {
   op.dotsOptions.type = e.target.value;
   render();
@@ -145,20 +113,13 @@ dotColorEl2.addEventListener("input", (e) => {
   render();
 });
 
+// Background color
 bgEl.addEventListener("input", (e) => {
   op.backgroundOptions.color = e.target.value;
   render();
 });
 
-let qrCode;
-function render() {
-  qrCode = new QRCodeStyling(op);
-  let canvasEl = document.querySelector("#canvas");
-  canvasEl.innerHTML = "";
-  qrCode.append(canvasEl);
-  //   canvasEl.nextElementSibling.innerHTML = `${op.width}px x ${op.height}px`;
-}
-
+// Logo upload
 function browse() {
   logoEl.click();
 }
@@ -184,15 +145,16 @@ logoEl.addEventListener("change", (e) => {
   }
 });
 
-clearEl.addEventListener("click", (e) => {
+// Clear image
+clearEl.addEventListener("click", () => {
   delete op.image;
   render();
 });
 
+// Download QR code
 dlEl.addEventListener("click", (e) => {
   qrCode.download({
     name: textEl.value + " (QRMe QR)",
     extenstion: "jpg, svg, png, jpeg",
   });
 });
-// End QR Code program

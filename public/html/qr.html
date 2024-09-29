@@ -176,33 +176,6 @@
               Clear
             </button>
           </div>
-
-          <!-- Size -->
-          <!-- <div class="flex items-center justify-between gap-3 w-72">
-            <label for="size">Size</label>
-            <input
-              type="range"
-              id="size"
-              min="22"
-              max="60"
-              value="1"
-              class="input-1x"
-            />
-          </div> -->
-
-          <!-- Margin -->
-          <!-- <div class="flex items-center justify-between gap-3 w-72">
-            <label for="margin">Margin</label>
-            <input
-              type="range"
-              id="margin"
-              value="0"
-              min="1"
-              max="15"
-              class="input-1x cursorNone gray"
-              disabled
-            />
-          </div> -->
         </div>
         <div
           class="w-full h-[400px] py-5 flex flex-col justify-between rounded-md gap-5 bg-slate-700 shadow-xl shadow-slate-800 md:w-[30%]"
@@ -212,7 +185,7 @@
               id="canvas"
               class="flex justify-center items-center w-[160px] h-[160px] border border-slate-300 rounded"
             >
-              <!-- <span
+              <span
                 id="loadingCanvas"
                 class="transform opacity-hidden hidden items-center justify-center gap-1"
               >
@@ -220,7 +193,7 @@
                   class="inline-block h-5 w-5 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite]"
                   role="status"
                 ></div>
-              </span> -->
+              </span>
             </div>
           </div>
           <div
@@ -281,7 +254,6 @@
             </div>
           </div>
           <div class="flex items-center justify-center">
-            <!-- <p>230px x 230px</p> -->
             <button
               class="bg-teal-500 px-4 py-2 rounded transition duration-150 hover:bg-teal-600 md:py-1.5"
               id="btn-dl"
@@ -294,96 +266,6 @@
       </div>
     </section>
 
-    <!-- <section class="w-[95%] mx-auto text-white">
-      <h2>QRCode Generator</h2>
-      <div class="tabelQR">
-        <div class="qrSide">
-          <div>
-            <label for="data">Input</label>
-            <textarea
-              id="data"
-              class="input-1x"
-              placeholder="Masukan Teks atau URL"
-              spellcheck="false"
-            ></textarea>
-          </div>
-          <div>
-            <label for="size">Size</label>
-            <input
-              type="range"
-              id="size"
-              min="22"
-              max="60"
-              value="1"
-              class="input-1x"
-            />
-          </div>
-          <div>
-            <label for="logo">Logo</label>
-            <input type="file" id="logo" hidden />
-            <div class="buttonFile">
-              <a href="javascript:browse()" title="Upload File">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-file-earmark-arrow-up-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.354 9.854a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 8.707V12.5a.5.5 0 0 1-1 0V8.707L6.354 9.854z"
-                  />
-                </svg>
-              </a>
-              <button id="clear" type="button">Clear</button>
-            </div>
-          </div>
-          <div>
-            <label for="margin">Margin</label>
-            <input
-              type="range"
-              id="margin"
-              value="0"
-              min="1"
-              max="15"
-              class="input-1x cursorNone gray"
-              disabled
-            />
-          </div>
-          <div>
-            <label for="dot">Dot Mode</label>
-            <select id="dot">
-              <option value="square">Square</option>
-              <option value="dots">Dots</option>
-              <option value="rounded">Rounded</option>
-              <option value="extra-rounded">Extra Rounded</option>
-              <option value="classy">Classy</option>
-              <option value="classy-rounded">Classy Rounded</option>
-            </select>
-          </div>
-          <div>
-            <label for="dot-color">Dot Color</label>
-            <input type="color" id="dot-color-1" />
-            <input type="color" id="dot-color-2" />
-          </div>
-          <div>
-            <label for="bg-color">Bg Color</label>
-            <input type="color" id="bg-color" />
-          </div>
-        </div>
-        <div class="qrResult">
-          <div class="qrLoad">
-            <div id="canvas"></div>
-            <p>230px x 230px</p>
-            <button class="btn-download" id="btn-dl" type="button">
-              Download
-            </button>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-    <script src="../script.js"></script>
+    <script src="../js/script.js"></script>
   </body>
 </html>
